@@ -1,0 +1,22 @@
+{
+  "name": "dynamic-system-host",
+  "private": true,
+  "workspaces": [
+    "./app1",
+    "./app2",
+    "./app3"
+  ],
+  "version": "0.0.0",
+  "scripts": {
+    "start": "nx run-many -t start --parallel",
+    "build": "nx run-many -t build --parallel",
+    "serve": "nx run-many -t serve --parallel",
+    "clean": "nx run-many -t clean --parallel"
+  },
+  "devDependencies": {
+    "nx": "15.9.2"
+  },
+  "dependencies": {
+    "tslib": "^2.5.0"
+  }
+}
