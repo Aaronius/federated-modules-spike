@@ -1,48 +1,22 @@
 import React from "react";
-import { importRemote } from "@module-federation/utilities";
+import importFederatedModule from "./import-federated-module";
 
-const getBasepath = async (name) => {
-  const result = await fetch(`http://localhost:3004/remote/${name}`);
-  const data = await result.json();
-  return data.basepath;
-};
+const App2 = React.lazy(() =>
+  importFederatedModule({
+    name: "app2",
+    module: "./Widget",
+  })
+);
 
-const System = (props) => {
-  const {
-    system: { name, module },
-  } = props;
-
-  if (!name || !module) {
-    throw new Error("The props name and module are required");
-  }
-
-  const Component = React.lazy(() =>
-    importRemote({ url: () => getBasepath(name), scope: name, module })
-  );
-
-  return (
-    <React.Suspense fallback="Loading System">
-      <Component />
-    </React.Suspense>
-  );
-};
+const App3 = React.lazy(() =>
+  importFederatedModule({
+    name: "app3",
+    module: "./Widget",
+  })
+);
 
 const App = () => {
-  const [system, setSystem] = React.useState({});
-
-  function setApp2() {
-    setSystem({
-      name: "app2",
-      module: "./Widget",
-    });
-  }
-
-  function setApp3() {
-    setSystem({
-      name: "app3",
-      module: "./Widget",
-    });
-  }
+  const [remoteName, setRemoteName] = React.useState({});
 
   return (
     <div
@@ -58,10 +32,13 @@ const App = () => {
         <strong>remotes</strong> and <strong>exposes</strong>. It will not load
         any components or modules that have been loaded already.
       </p>
-      <button onClick={setApp2}>Load App 2 Widget</button>
-      <button onClick={setApp3}>Load App 3 Widget</button>
+      <button onClick={() => setRemoteName("app2")}>Load App 2 Widget</button>
+      <button onClick={() => setRemoteName("app3")}>Load App 3 Widget</button>
       <div style={{ marginTop: "2em" }}>
-        <System system={system} />
+        <React.Suspense fallback="Loading...">
+          {remoteName === "app2" && <App2 />}
+          {remoteName === "app3" && <App3 />}
+        </React.Suspense>
       </div>
     </div>
   );

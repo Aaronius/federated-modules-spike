@@ -37,6 +37,8 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "app3",
       filename: "remoteEntry.js",
+      // It appears the ./ prefix is required.
+      // https://github.com/module-federation/universe/issues/800
       exposes: {
         "./Widget": "./src/Widget",
       },

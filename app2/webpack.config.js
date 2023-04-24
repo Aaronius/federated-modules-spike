@@ -39,6 +39,8 @@ module.exports = {
       name: "app2",
       filename: "remoteEntry.js",
       exposes: {
+        // It appears the ./ prefix is required.
+        // https://github.com/module-federation/universe/issues/800
         "./Widget": "./src/Widget",
       },
       shared: [
