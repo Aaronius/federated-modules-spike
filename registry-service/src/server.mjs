@@ -17,7 +17,6 @@ await fastify.register(cors, {
 
 // Define the endpoint
 fastify.get("/remote/:name", (request, reply) => {
-  console.log("Hello from service");
   const basepath = basepathByRemoteName[request.params.name];
 
   if (!basepath) {
