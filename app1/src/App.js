@@ -1,17 +1,22 @@
 import React from 'react';
 import { importRemote } from '@module-federation/utilities';
 
+const getBasepath = async (name) => {
+  const result = await fetch(`http://localhost:3004/remote/${name}`);
+  const data = await result.json();
+  return data.basepath;
+}
+
 function System(props) {
   const {
-    system,
-    system: { url, scope, module },
+    system: { name, module } = {},
   } = props;
 
-  if (!system || !url || !scope || !module) {
+  if (!name || !module) {
     return <h2>No system specified</h2>;
   }
 
-  const Component = React.lazy(() => importRemote({ url, scope, module }));
+  const Component = React.lazy(() => importRemote({ url: () => getBasepath(name), scope: name, module }));
 
   return (
     <React.Suspense fallback="Loading System">
@@ -20,21 +25,20 @@ function System(props) {
   );
 }
 
+
 function App() {
   const [system, setSystem] = React.useState({});
 
   function setApp2() {
     setSystem({
-      url: 'http://localhost:3002',
-      scope: 'app2',
+      name: "app2",
       module: './Widget',
     });
   }
 
   function setApp3() {
     setSystem({
-      url: 'http://localhost:3003',
-      scope: 'app3',
+      name: "app3",
       module: './Widget',
     });
   }

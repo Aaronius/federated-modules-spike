@@ -4,7 +4,8 @@
   "workspaces": [
     "./app1",
     "./app2",
-    "./app3"
+    "./app3",
+    "./registry-service"
   ],
   "version": "0.0.0",
   "scripts": {
