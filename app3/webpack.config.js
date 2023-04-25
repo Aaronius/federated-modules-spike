@@ -3,7 +3,7 @@ const { ModuleFederationPlugin } = require("webpack").container;
 const path = require("path");
 
 module.exports = {
-  entry: "./src/index",
+  entry: "./src/hostStub/index",
   mode: "development",
   devServer: {
     static: {
@@ -37,15 +37,16 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "app3",
       filename: "remoteEntry.js",
-      // It appears the ./ prefix is required.
-      // https://github.com/module-federation/universe/issues/800
       exposes: {
-        "./Widget": "./src/Widget",
+        "./App": "./src/App",
+        "./getRoutes": "./src/getRoutes",
       },
       shared: {
         react: { singleton: true },
         "react-dom": { singleton: true },
         moment: { singleton: true },
+        "react-router": { singleton: true },
+        "react-router-dom": { singleton: true },
       },
     }),
     new HtmlWebpackPlugin({

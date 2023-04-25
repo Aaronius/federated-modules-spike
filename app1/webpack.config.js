@@ -11,9 +11,12 @@ module.exports = {
       directory: path.join(__dirname, "dist"),
     },
     port: 3001,
+    // Serves the root index.html file when going directly to a SPA route.
+    historyApiFallback: true,
   },
   output: {
     publicPath: "auto",
+    uniqueName: "zzzzz",
   },
   module: {
     rules: [
@@ -41,6 +44,8 @@ module.exports = {
         react: { singleton: true },
         "react-dom": { singleton: true },
         moment: { singleton: true },
+        "react-router": { singleton: true },
+        "react-router-dom": { singleton: true },
       },
     }),
     new HtmlWebpackPlugin({

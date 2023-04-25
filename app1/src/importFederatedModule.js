@@ -7,15 +7,17 @@ const getRemoteEntryUrlBase = async (name) => {
   return data.basepath;
 };
 
-const importFederatedModule = ({ name, module }) => {
-  if (!name || !module) {
-    throw new Error("The options ame and module are required");
+const importFederatedModule = ({ remote, module }) => {
+  // TODO Just enforce via types
+  if (!remote || !module) {
+    throw new Error("The options remote and module are required");
   }
 
   return importRemote({
-    url: () => getRemoteEntryUrlBase(name),
-    scope: name,
+    url: () => getRemoteEntryUrlBase(remote),
+    scope: remote,
     module,
+    // bustRemoteEntryCache: false
   });
 };
 
