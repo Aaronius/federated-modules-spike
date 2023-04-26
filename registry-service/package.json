@@ -2,7 +2,8 @@
   "name": "registry-service",
   "version": "1.0.0",
   "scripts": {
-    "start": "node src/server.mjs &"
+    "start": "node src/server.mjs &",
+    "serve": "node src/server.mjs &"
   },
   "dependencies": {
     "@fastify/cors": "^8.2.1",

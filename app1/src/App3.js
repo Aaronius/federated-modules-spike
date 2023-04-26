@@ -3,7 +3,7 @@ import importFederatedModule from "./importFederatedModule";
 
 const App3 = React.lazy(() =>
   importFederatedModule({
-    remote: "app3",
+    remote: "ayx_app3",
     module: "App",
   })
 );

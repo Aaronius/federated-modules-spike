@@ -35,7 +35,7 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "app3",
+      name: "ayx_app3",
       filename: "remoteEntry.js",
       exposes: {
         "./App": "./src/App",

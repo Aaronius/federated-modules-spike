@@ -34,9 +34,12 @@ module.exports = {
       },
     ],
   },
+  // optimization: {
+  //   minimize: false
+  // },
   plugins: [
     new ModuleFederationPlugin({
-      name: "app2",
+      name: "ayx_app2",
       filename: "remoteEntry.js",
       exposes: {
         "./App": "./src/App",

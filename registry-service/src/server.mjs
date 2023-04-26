@@ -5,8 +5,8 @@ const PORT = 3004; // Port number to listen on
 const REMOTE_ENTRY_FILENAME = "remoteEntry.js";
 
 const basepathByRemoteName = {
-  app2: "http://localhost:3002",
-  app3: "http://localhost:3003",
+  ayx_app2: "http://localhost:3002",
+  ayx_app3: "http://localhost:3003",
 };
 
 const fastify = new Fastify();

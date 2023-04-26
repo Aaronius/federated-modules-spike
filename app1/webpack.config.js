@@ -38,7 +38,7 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "app1",
+      name: "ayx_app1",
       shared: {
         react: { singleton: true },
         "react-dom": { singleton: true },

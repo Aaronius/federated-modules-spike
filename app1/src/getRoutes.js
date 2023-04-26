@@ -12,11 +12,11 @@ const SuspenseContainer = ({ children }) => {
 const getRoutes = async () => {
   const [getApp2RoutesModule, getApp3RoutesModule] = await Promise.all([
     importFederatedModule({
-      remote: "app2",
+      remote: "ayx_app2",
       module: "./getRoutes",
     }),
     importFederatedModule({
-      remote: "app3",
+      remote: "ayx_app3",
       module: "getRoutes",
     }),
   ]);
