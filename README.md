@@ -1,11 +1,11 @@
 # Federated Modules Spike
 
-This example demos a basic host application loading remote component.
+This example demos a host application loading remotes based on remote URLs determined at runtime. The remote URLS are determined by querying by passing the remote's name to the registry service and the registry service returning the base path for the federated module.
 
 - `app1` is the host application.
-- `app2` is a remote which exposes `App` and `routes` modules.
-- `app3` is a remote which exposes `App` and `routes` modules.
-- `registery-service` is a service that `app1` makes requests to at runtime to determine the URL for loading `app2` and `app3`.
+- `app2` is a remote which exposes an `App` module.
+- `app3` is a remote which exposes an `App` module.
+- `registery-service` is a service that `app1` makes requests to at runtime to determine the base URLs for loading `app2` and `app3`.
 
 # Running Demo
 
