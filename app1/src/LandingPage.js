@@ -10,6 +10,9 @@ const LandingPage = () => {
 
       <ul>
         <li>
+          <Link to="/">App 1</Link>
+        </li>
+        <li>
           <Link to="/about-us">App 1 - About Us</Link>
         </li>
         <li>

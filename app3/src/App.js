@@ -21,6 +21,21 @@ const App = () => {
 
       <ul>
         <li>
+          <Link to="/">App 1</Link>
+        </li>
+        <li>
+          <Link to="/about-us">App 1 - About Us</Link>
+        </li>
+        <li>
+          <Link to="/app2">App 2</Link>
+        </li>
+        <li>
+          <Link to="/app2/billing">App 2 - Billing</Link>
+        </li>
+        <li>
+          <Link to="/app2/payment-methods">App 2 - Payment Methods</Link>
+        </li>
+        <li>
           <Link to="/app3">App 3</Link>
         </li>
         <li>
