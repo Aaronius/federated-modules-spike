@@ -16,7 +16,6 @@ module.exports = {
   },
   output: {
     publicPath: "auto",
-    uniqueName: "zzzzz",
   },
   module: {
     rules: [
