@@ -1,8 +1,8 @@
 import React from "react";
 import importFederatedModule from "./importFederatedModule";
 import LandingPage from "./LandingPage";
-import App2 from "./App2";
-import App3 from "./App3";
+import LazyApp2 from "./LazyApp2";
+import LazyApp3 from "./LazyApp3";
 
 const LazyAboutUs = React.lazy(() => import("./AboutUs"));
 const SuspenseContainer = ({ children }) => {
@@ -39,12 +39,12 @@ const getRoutes = async () => {
         },
         {
           path: "app2",
-          element: <App2 />,
+          element: <LazyApp2 />,
           children: app2Routes,
         },
         {
           path: "app3",
-          element: <App3 />,
+          element: <LazyApp3 />,
           children: app3Routes,
         },
       ],
