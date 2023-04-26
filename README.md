@@ -3,8 +3,8 @@
 This example demos a basic host application loading remote component.
 
 - `app1` is the host application.
-- `app2` is a remote which exposes `App` and `getRoutes` modules.
-- `app3` is a remote which exposes `App` and `getRoutes` modules.
+- `app2` is a remote which exposes `App` and `routes` modules.
+- `app3` is a remote which exposes `App` and `routes` modules.
 - `registery-service` is a service that `app1` makes requests to at runtime to determine the URL for loading `app2` and `app3`.
 
 # Running Demo

@@ -39,7 +39,7 @@ module.exports = {
       filename: "remoteEntry.js",
       exposes: {
         "./App": "./src/App",
-        "./getRoutes": "./src/getRoutes",
+        "./getRoutes": "./src/routes",
       },
       shared: {
         react: { singleton: true },
