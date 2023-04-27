@@ -33,6 +33,9 @@ module.exports = {
       },
     ],
   },
+  optimization: {
+    minimize: false,
+  },
   plugins: [
     new ModuleFederationPlugin({
       name: "ayx_app3",

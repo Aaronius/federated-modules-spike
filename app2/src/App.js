@@ -1,9 +1,9 @@
 import React from "react";
-import { useRoutes } from "react-router-dom";
-import routes from "./routes";
+import woof from "./woof";
 
 const App = () => {
-  return useRoutes(routes);
+  woof();
+  return <div>Hello from App2!</div>;
 };
 
 export default App;

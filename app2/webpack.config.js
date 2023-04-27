@@ -4,16 +4,41 @@ const ModuleFederationPlugin =
 const path = require("path");
 
 module.exports = {
-  entry: "./src/hostStub/index",
+  entry: {
+    app2: "./src/App",
+    woof: "./src/woof",
+  },
   mode: "development",
   devServer: {
     static: {
       directory: path.join(__dirname, "dist"),
     },
     port: 3002,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
   },
   output: {
     publicPath: "auto",
+    libraryTarget: "module",
+  },
+  experiments: {
+    outputModule: true,
+  },
+
+  externals: {
+    // function({ context, request }, callback) {
+    //   console.log(request);
+    //   // if (/woof/.test(request)) {
+    //   //   import('woof').then(woof => callback(woof))
+    //   // }
+    //   callback();
+    // }
+    "./woof":
+      "promise import('woof').then(woof => woof.default).catch(error => console.log(error))",
+    // "react": "promise import('react')",
+    // react: "import('react')",
+    // "react-dom": "import('react-dom')"
   },
   module: {
     rules: [
@@ -34,29 +59,38 @@ module.exports = {
       },
     ],
   },
-  // optimization: {
-  //   minimize: false
-  // },
-  plugins: [
-    new ModuleFederationPlugin({
-      name: "ayx_app2",
-      filename: "remoteEntry.js",
-      exposes: {
-        "./App": "./src/App",
-        "./getRoutes": "./src/routes",
-      },
-      shared: [
-        {
-          react: { singleton: true },
-          "react-dom": { singleton: true },
-          moment: { singleton: true },
-          "react-router": { singleton: true },
-          "react-router-dom": { singleton: true },
+  optimization: {
+    minimize: false,
+    splitChunks: {
+      cacheGroups: {
+        reactVendor: {
+          test: /react/,
+          name: "vendor-react",
+          chunks: "all",
         },
-      ],
-    }),
-    new HtmlWebpackPlugin({
-      template: "./public/index.html",
-    }),
+      },
+    },
+  },
+  plugins: [
+    // new ModuleFederationPlugin({
+    //   name: "ayx_app2",
+    //   filename: "remoteEntry.js",
+    //   exposes: {
+    //     "./App": "./src/App",
+    //     "./getRoutes": "./src/routes",
+    //   },
+    //   shared: [
+    //     {
+    //       react: { singleton: true },
+    //       "react-dom": { singleton: true },
+    //       moment: { singleton: true },
+    //       "react-router": { singleton: true },
+    //       "react-router-dom": { singleton: true },
+    //     },
+    //   ],
+    // }),
+    // new HtmlWebpackPlugin({
+    //   template: "./public/index.html",
+    // }),
   ],
 };

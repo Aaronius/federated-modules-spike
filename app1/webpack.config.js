@@ -17,6 +17,9 @@ module.exports = {
   output: {
     publicPath: "auto",
   },
+  externals: {
+    app2: "import('app2')",
+  },
   module: {
     rules: [
       {

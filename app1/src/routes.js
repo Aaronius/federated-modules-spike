@@ -1,8 +1,13 @@
 import React from "react";
 import LandingPage from "./LandingPage";
 import LazyApp2 from "./LazyApp2";
-import LazyApp3 from "./LazyApp3";
 import AboutUs from "./AboutUs";
+
+import App2 from "app2";
+
+(async () => {
+  console.log(App2);
+})();
 
 const routes = [
   {
@@ -18,12 +23,12 @@ const routes = [
         ),
       },
       {
-        path: "app2/*",
-        element: <LazyApp2 />,
-      },
-      {
-        path: "app3/*",
-        element: <LazyApp3 />,
+        path: "app2",
+        element: (
+          <React.Suspense fallback="Loading...">
+            <LazyApp2 />
+          </React.Suspense>
+        ),
       },
     ],
   },
