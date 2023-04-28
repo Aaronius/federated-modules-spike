@@ -18,7 +18,7 @@ module.exports = {
     publicPath: "auto",
   },
   externals: {
-    app2: "import('app2')",
+    woof: "module",
   },
   module: {
     rules: [

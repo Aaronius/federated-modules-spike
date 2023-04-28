@@ -1,13 +1,7 @@
 import React from "react";
 import LandingPage from "./LandingPage";
-import LazyApp2 from "./LazyApp2";
+// import LazyApp2 from "./LazyApp2";
 import AboutUs from "./AboutUs";
-
-import App2 from "app2";
-
-(async () => {
-  console.log(App2);
-})();
 
 const routes = [
   {
@@ -22,14 +16,12 @@ const routes = [
           </React.Suspense>
         ),
       },
-      {
-        path: "app2",
-        element: (
-          <React.Suspense fallback="Loading...">
-            <LazyApp2 />
-          </React.Suspense>
-        ),
-      },
+      // {
+      //   path: "app2",
+      //   element: (
+      //     <App2/>
+      //   ),
+      // },
     ],
   },
 ];

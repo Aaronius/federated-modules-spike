@@ -1,5 +1,5 @@
-const woof = () => {
-  console.log("woof");
-};
+// const woof = () => {
+//   console.log("woof");
+// };
 
-export default woof;
+export default { foo: "bar" };

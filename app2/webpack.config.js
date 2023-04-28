@@ -25,21 +25,6 @@ module.exports = {
   experiments: {
     outputModule: true,
   },
-
-  externals: {
-    // function({ context, request }, callback) {
-    //   console.log(request);
-    //   // if (/woof/.test(request)) {
-    //   //   import('woof').then(woof => callback(woof))
-    //   // }
-    //   callback();
-    // }
-    "./woof":
-      "promise import('woof').then(woof => woof.default).catch(error => console.log(error))",
-    // "react": "promise import('react')",
-    // react: "import('react')",
-    // "react-dom": "import('react-dom')"
-  },
   module: {
     rules: [
       {
