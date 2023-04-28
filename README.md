@@ -9,5 +9,8 @@ This example demos a host application loading remotes based on remote URLs deter
 
 # Running Demo
 
-Run `npm start`. This will build and serve both `app1`, `app2`, `app3`, and `registery-service` on
+Run `npm install`.
+Run `npm start`.
+
+This will build and serve both `app1`, `app2`, `app3`, and `registery-service` on
 ports `3001`, `3002`, `3003`, `3004` respectively.
